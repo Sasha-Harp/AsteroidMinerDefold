@@ -3,8 +3,16 @@ instances {
   id: "asteroid"
   prototype: "/main/asteroid.go"
   position {
-    x: 298.0
-    y: 455.0
+    x: 290.10565
+    y: 449.9681
+  }
+}
+instances {
+  id: "enemy"
+  prototype: "/main/enemy.go"
+  position {
+    x: 276.10388
+    y: 680.997
   }
 }
 scale_along_z: 0

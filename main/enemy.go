@@ -1,3 +1,7 @@
+components {
+  id: "enemy"
+  component: "/main/enemy.script"
+}
 embedded_components {
   id: "sprite"
   type: "sprite"
@@ -16,8 +20,8 @@ embedded_components {
 embedded_components {
   id: "collisionobject"
   type: "collisionobject"
-  data: "type: COLLISION_OBJECT_TYPE_TRIGGER\n"
-  "mass: 0.0\n"
+  data: "type: COLLISION_OBJECT_TYPE_DYNAMIC\n"
+  "mass: 1.0\n"
   "friction: 0.1\n"
   "restitution: 0.5\n"
   "group: \"enemies\"\n"
@@ -35,17 +39,17 @@ embedded_components {
   "  shapes {\n"
   "    shape_type: TYPE_SPHERE\n"
   "    position {\n"
-  "      y: -15.0\n"
+  "      y: -14.0\n"
   "    }\n"
   "    rotation {\n"
   "    }\n"
   "    index: 3\n"
   "    count: 1\n"
   "  }\n"
-  "  data: 4.9192357\n"
+  "  data: 3.742835\n"
   "  data: 26.732716\n"
   "  data: 10.0\n"
-  "  data: 14.269185\n"
+  "  data: 14.028777\n"
   "}\n"
   ""
 }
