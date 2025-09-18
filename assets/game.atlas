@@ -1,0 +1,85 @@
+animations {
+  id: "player"
+  images {
+    image: "/assets/pc.png"
+  }
+  playback: PLAYBACK_NONE
+}
+animations {
+  id: "enemy"
+  images {
+    image: "/assets/enemy.png"
+  }
+  playback: PLAYBACK_NONE
+}
+animations {
+  id: "asteroid0"
+  images {
+    image: "/assets/asteroids/asteroid_output_0000.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid1"
+  images {
+    image: "/assets/asteroids/asteroid_output_0001.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid2"
+  images {
+    image: "/assets/asteroids/asteroid_output_0002.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid3"
+  images {
+    image: "/assets/asteroids/asteroid_output_0003.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid4"
+  images {
+    image: "/assets/asteroids/asteroid_output_0004.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid5"
+  images {
+    image: "/assets/asteroids/asteroid_output_0005.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid6"
+  images {
+    image: "/assets/asteroids/asteroid_output_0006.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid7"
+  images {
+    image: "/assets/asteroids/asteroid_output_0007.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid8"
+  images {
+    image: "/assets/asteroids/asteroid_output_0008.png"
+  }
+  fps: 0
+}
+animations {
+  id: "asteroid9"
+  images {
+    image: "/assets/asteroids/asteroid_output_0009.png"
+  }
+  fps: 0
+}
+extrude_borders: 2

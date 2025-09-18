@@ -1,0 +1,39 @@
+local speed = {x = 0.0, y = 0.0}
+local rotation = 0.0
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+end
+
+function update(self, dt)
+	local pos = go.get_position(".")
+	speed.x = speed.x * 0.98
+	speed.y = speed.y * 0.98
+
+	pos.x = pos.x + speed.x * dt * 60
+	pos.y = pos.y + speed.y * dt * 60
+	go.set_position(pos, ".")
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("left") then
+		rotation = rotation + 0.01
+		go.set_rotation(vmath.quat_rotation_z(rotation), ".")
+	end
+	if action_id == hash("right") then
+		rotation = rotation - 0.01
+		go.set_rotation(vmath.quat_rotation_z(rotation), ".")
+	end
+	if action_id == hash("fore") then
+		local x = speed.x
+		local y = speed.y
+		speed.x = x + math.sin(-rotation) * 0.1
+		speed.y = y + math.cos(-rotation) * 0.1
+	end
+	if action_id == hash("back") then
+		local x = speed.x
+		local y = speed.y
+		speed.x = x - math.sin(-rotation) * 0.05
+		speed.y = y - math.cos(-rotation) * 0.05
+	end
+end
