@@ -1,20 +1,10 @@
-function on_message(self, message_id, message, sender)
-	math.randomseed(100000000000000 * (socket.gettime() % 1))
-	-- check for the message
-	if message_id == hash("trigger_response") then
-		if message.enter then
-			for i = 1, math.random(6, 10) do
-				local scale = math.random()+0.9
-				factory.create("#factory", nil, nil, {direction = math.random()*math.pi*2, in_speed = math.random(10.0, 20.0)}, scale)
-			end
-			go.delete(".")
-		end
-	end
-end
+go.property("in_speed", 20)
+go.property("direction", 0.0)
 
 function init(self)
-	math.randomseed(100000000000000 * (socket.gettime() % 1))
+	-- math.randomseed(100000000000000 * (socket.gettime() % 1))
 	sprite.play_flipbook("#sprite", hash("asteroid" .. math.random(0, 9)))
+	self.speed = {x = math.sin(self.direction)*self.in_speed, y = math.cos(self.direction)*self.in_speed}
 end
 
 function final(self)
@@ -24,9 +14,13 @@ function final(self)
 end
 
 function update(self, dt)
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+	local pos = go.get_position(".")
+	self.speed.x = self.speed.x * 0.98
+	self.speed.y = self.speed.y * 0.98
+
+	pos.x = pos.x + self.speed.x * dt * 60
+	pos.y = pos.y + self.speed.y * dt * 60
+	go.set_position(pos, ".")
 end
 
 function fixed_update(self, dt)
@@ -35,6 +29,12 @@ function fixed_update(self, dt)
 	-- Physics section of game.project
 	-- Add update code here
 	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Learn more: https://defold.com/manuals/message-passing/
 	-- Remove this function if not needed
 end
 
