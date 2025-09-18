@@ -1,13 +1,18 @@
-# Welcome to Defold
+# Asteroid Mining game in Defold
 
-This project was created from the "empty" project template.
+### Description
 
-The settings in ["game.project"](defold://open?path=/game.project) are all the default. A bootstrap empty ["main.collection"](defold://open?path=/main/main.collection) is included.
-
-Check out [the documentation pages](https://defold.com/learn) for examples, tutorials, manuals and API docs.
-
-If you run into trouble, help is available in [our forum](https://forum.defold.com).
-
-Happy Defolding!
+This is a project I started with the purpose of learning the Defold engine.
+The game is about mining asteroids and evading enemy spaceships.
 
 ---
+
+### Attribution
+
+Thanks to @unfolding_gamedev on YouTube for the "Defold for beginners" video-series for inspiring and teaching.
+
+---
+
+### Resources
+
+All the resources have been created and code was written by me without the use of generative AI.
