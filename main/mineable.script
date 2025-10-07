@@ -1,0 +1,28 @@
+function on_message(self, message_id, message, sender)
+	math.randomseed(100000000000000 * (socket.gettime() % 1))
+	-- check for the message
+	if message_id == hash("trigger_response") then
+		if message.enter then
+			msg.post(".", "destroy")
+		end
+	end
+
+	if message_id == hash("lazer_hit") then
+		self.isHit = true
+	end
+end
+
+function update(self, dt)
+	if self.isHit then
+		self.heat = self.heat + 1.1 * dt
+		if self.heat > 1 then
+			msg.post(".", "destroy")
+		end
+	end
+	self.heat = math.max(0, self.heat - 0.3*dt)
+end
+
+function init(self)
+	self.heat = 0.0
+	self.isHit = false
+end

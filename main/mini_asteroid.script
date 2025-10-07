@@ -1,14 +1,10 @@
-go.property("in_speed", 20)
+go.property("in_speed", 1)
 go.property("direction", 0.0)
 
 function init(self)
 	-- math.randomseed(100000000000000 * (socket.gettime() % 1))
 	sprite.play_flipbook("#sprite", hash("asteroid" .. math.random(0, 9)))
 	self.speed = {x = math.sin(self.direction)*self.in_speed, y = math.cos(self.direction)*self.in_speed}
-	self.heat = 0.0
-	self.destroy = function ()
-		go.delete(".")
-	end
 end
 
 function final(self)
@@ -37,11 +33,8 @@ function fixed_update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("lazer_hit") then
-		self.heat = self.heat + 0.01
-		if self.heat > 1 then
-			self.destroy()
-		end
+	if message_id == hash("destroy") then
+		go.delete(".")
 	end
 end
 

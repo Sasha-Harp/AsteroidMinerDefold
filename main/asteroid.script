@@ -1,31 +1,18 @@
 function on_message(self, message_id, message, sender)
-	math.randomseed(100000000000000 * (socket.gettime() % 1))
-	-- check for the message
-	if message_id == hash("trigger_response") then
-		if message.enter then
-			self.destroy()
-		end
-	end
-
-	if message_id == hash("lazer_hit") then
-		self.heat = self.heat + 0.01
-		if self.heat > 1 then
-			self.destroy()
-		end
-	end
-end
-
-function init(self)
-	math.randomseed(100000000000000 * (socket.gettime() % 1))
-	sprite.play_flipbook("#sprite", hash("asteroid" .. math.random(0, 9)))
-	self.destroy = function ()
+	if message_id == hash("destroy") then
 		for i = 1, math.random(6, 10) do
 			local scale = math.random()+0.9
 			factory.create("#factory", nil, nil, {direction = math.random()*math.pi*2, in_speed = math.random(10.0, 20.0)}, scale)
 		end
 		go.delete(".")
 	end
-	self.heat = 0.0
+end
+
+function init(self)
+	math.randomseed(100000000000000 * (socket.gettime() % 1))
+	sprite.play_flipbook("#sprite", hash("asteroid" .. math.random(0, 9)))
+-- 	self.heat = 0.0
+-- 	self.isHit = false
 end
 
 function final(self)
@@ -35,7 +22,13 @@ function final(self)
 end
 
 function update(self, dt)
-	self.heat = math.max(0, self.heat - 0.5*dt)
+-- 	if self.isHit then
+-- 		self.heat = self.heat + 1.1 * dt
+-- 		if self.heat > 1 then
+-- 			self.destroy()
+-- 		end
+-- 	end
+-- 	self.heat = math.max(0, self.heat - 0.3*dt)
 end
 
 function fixed_update(self, dt)

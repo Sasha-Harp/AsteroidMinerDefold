@@ -2,6 +2,10 @@ components {
   id: "mini_asteroid"
   component: "/main/mini_asteroid.script"
 }
+components {
+  id: "mineable"
+  component: "/main/mineable.script"
+}
 embedded_components {
   id: "sprite"
   type: "sprite"
