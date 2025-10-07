@@ -82,4 +82,12 @@ animations {
   }
   fps: 0
 }
+animations {
+  id: "unobtainium"
+  images {
+    image: "/assets/unobtainium.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 0
+}
 extrude_borders: 2
