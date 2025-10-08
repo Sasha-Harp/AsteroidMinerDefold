@@ -1,3 +1,7 @@
+components {
+  id: "unobtainium"
+  component: "/main/unobtainium.script"
+}
 embedded_components {
   id: "sprite"
   type: "sprite"

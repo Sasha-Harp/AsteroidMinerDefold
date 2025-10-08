@@ -1,3 +1,5 @@
+go.property("unobtainium", 0)
+
 local speed = {x = 0.0, y = 0.0}
 local rotation = 0.0
 local length = 200
@@ -45,5 +47,12 @@ function on_input(self, action_id, action)
 		if hit ~= nil then
 			msg.post(hit[1].id, "lazer_hit", {})
 		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("pickup") then
+		go.set("#", "unobtainium", go.get("#", "unobtainium") + 1)
+		label.set_text("/ui#label", tostring(go.get("#", "unobtainium")))
 	end
 end

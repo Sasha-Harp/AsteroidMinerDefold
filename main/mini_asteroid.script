@@ -19,6 +19,7 @@ end
 
 function on_message(self, message_id, message, sender)
 	if message_id == hash("destroy") then
+		factory.create("#factory", nil, nil, {}, 0.5)
 		go.delete(".")
 	end
 end
